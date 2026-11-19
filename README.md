@@ -18,6 +18,19 @@ by l2n(stored + l2n(VGGFace2(mirrored crop))) for members 1-3. Towers: MLP 256-2
 (Bengali speakers removed, Stage A) then the 70 English FLAG training identities (Stage B), 3 seeds. Predicted gender is not an input
 (age only); gender only composes training batches. No score normalisation, no cohort/test statistics, no clustering/graphs.
 
+## Data (Kaggle, public)
+Frozen-encoder features and inputs used by the scripts (`https://www.kaggle.com/datasets/mahiwoaliuhasan/<name>`):
+| Dataset | Content |
+|---|---|
+| [flag-v11-in](https://www.kaggle.com/datasets/mahiwoaliuhasan/flag-v11-in) | main features (VGGFace2, CLIP, ECAPA, WavLM, VoxBlink2, ViT age), language-ID, xj0 embeddings, `nb2v11.py` |
+| [flag-ho-extra](https://www.kaggle.com/datasets/mahiwoaliuhasan/flag-ho-extra) | extra inputs (ReDimNet2 features, xj0 sg50 embeddings, Bengali speaker list) |
+| [flag-rdn-b3](https://www.kaggle.com/datasets/mahiwoaliuhasan/flag-rdn-b3) | ReDimNet2-B3 features (FLAG + VoxCeleb2) |
+| [flag-ada-vgg](https://www.kaggle.com/datasets/mahiwoaliuhasan/flag-ada-vgg) | AdaFace IR-101 features (FLAG train + VoxCeleb2) |
+| [flag-ada-eval](https://www.kaggle.com/datasets/mahiwoaliuhasan/flag-ada-eval) | AdaFace features of the 4 evaluation lists |
+| [flag2027-campp-feats](https://www.kaggle.com/datasets/mahiwoaliuhasan/flag2027-campp-feats) | CAM++ features (FLAG train, VoxCeleb2, evaluation lists) |
+| [flag-tta-in](https://www.kaggle.com/datasets/mahiwoaliuhasan/flag-tta-in) | flip-TTA features, production towers, `tta_prod.py` |
+| [flag-adv-code](https://www.kaggle.com/datasets/mahiwoaliuhasan/flag-adv-code) | code used by the AdaFace/CAM++ kernel |
+
 ## Layout
 - `src/towers/nb2v11.py` tower training/scoring (members 1-3, 5); `configs/final_config_ageonly_rdn.json` members/weights.
 - `src/xj0/xft_full.py` xj0 encoder fine-tuning (PC script, N-way loss, query pooling); `PC_README.txt`, `*.ps1` launch scripts.
