@@ -6,6 +6,7 @@ Submission reproduced here: `outputs/submission/submission_final_20p33_fliptta_a
 ## System
 Score = (4 · v_flip − s_ada) / 5 per trial (lower = same person; plain cosine, each trial scored on its own).
 Five equal-weight members:
+
 | # | Member | Face input | Voice input |
 |---|---|---|---|
 | 1 | `rdn_aux` | VGGFace2 InceptionResnetV1 (+ ViT age), horizontal-flip TTA | ReDimNet2-B3 |
@@ -13,6 +14,7 @@ Five equal-weight members:
 | 3 | `clip_aux` | VGGFace2 + CLIP ViT-B/16 (+ age), flip TTA on the VGGFace2 part | ECAPA + WavLM-SV |
 | 4 | `xj0` (mean of 3 runs) | fine-tuned InceptionResnetV1 | fine-tuned WavLM-SV |
 | 5 | AdaFace + CAM++ | AdaFace IR-101 (WebFace12M) in the face slot (+ age) | CAM++ (official) |
+
 Members 1-4 form the earlier 20.33 ensemble (0.25 each; xj0 runs 1/12 each); the flip TTA replaces the stored VGGFace2 embedding
 by l2n(stored + l2n(VGGFace2(mirrored crop))) for members 1-3. Towers: MLP 256-256-128 per modality, trained on VoxCeleb2
 (Bengali speakers removed, Stage A) then the 70 English FLAG training identities (Stage B), 3 seeds. Predicted gender is not an input
@@ -20,6 +22,7 @@ by l2n(stored + l2n(VGGFace2(mirrored crop))) for members 1-3. Towers: MLP 256-2
 
 ## Data (Kaggle, public)
 Frozen-encoder features and inputs used by the scripts (`https://www.kaggle.com/datasets/mahiwoaliuhasan/<name>`):
+
 | Dataset | Content |
 |---|---|
 | [flag-v11-in](https://www.kaggle.com/datasets/mahiwoaliuhasan/flag-v11-in) | main features (VGGFace2, CLIP, ECAPA, WavLM, VoxBlink2, ViT age), language-ID, xj0 embeddings, `nb2v11.py` |
