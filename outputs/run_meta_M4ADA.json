@@ -1,0 +1,59 @@
+{
+ "model": "M4ADA",
+ "start_utc": "2026-11-17 07:11:37",
+ "python": "3.13.18",
+ "nb2v11_sha256": "e1f7f98f21acc0f4351a58a2114fc428f898b1c955d219750e35a0d6cafb6b22",
+ "voice": "CAM++ official (adv-x0a..x3 train / VoxCeleb2; optA-evalx evaluation lists), key campp_official",
+ "face": "AdaFace IR-101 WebFace12M in the VGGFace2 slot (train/VoxCeleb2: flag-ada-vgg; evaluation lists: flag-ada-eval)",
+ "torch": "2.11.0+cpu",
+ "threads": 2,
+ "recipe": {
+  "HN_W": 0.5,
+  "HN_MODE": "any",
+  "SAMPLING": "samegender",
+  "SAME_GENDER_FRAC": 0.5,
+  "TEMP": 0.1,
+  "AUX_GW": 0.0,
+  "FACE_ATTR": true,
+  "B_EPOCHS": 15,
+  "B_LR": 0.0001,
+  "WEIGHT_DECAY": 0.0001,
+  "P_IDS": 64,
+  "K_PER_ID": 4,
+  "stage_a_epochs": 12,
+  "stage_a_vox_val_fold": 0,
+  "stage_b_seed": "seed*1000 + 17*7",
+  "member": {
+   "name": "rdn_aux",
+   "face": [
+    "face"
+   ],
+   "voice": [
+    "rdn2"
+   ],
+   "face_attr": "age",
+   "hidden": 256,
+   "d": 128,
+   "p_in": 0.3,
+   "drop": 0.5,
+   "loss": "aux"
+  }
+ },
+ "data": {
+  "flag_train_items": 6485,
+  "flag_ids": 70,
+  "vox_speakers": 6096,
+  "vox_frames": 73159,
+  "face_dim": 513,
+  "voice_dim": 512
+ },
+ "single_vs_batched_max_abs_diff_seed2": 1.4901161193847656e-07,
+ "end_utc": "2026-11-17 07:25:59",
+ "minutes": 13.866737842559814,
+ "eval_lists": {
+  "eval__gender__Bangla.npz": 716,
+  "eval__gender__English.npz": 416,
+  "eval__no_gender__Bangla.npz": 802,
+  "eval__no_gender__English.npz": 392
+ }
+}

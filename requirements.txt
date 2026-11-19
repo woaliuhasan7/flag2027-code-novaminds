@@ -1,0 +1,8 @@
+numpy
+torch
+torchaudio
+transformers
+facenet-pytorch
+speechbrain
+scikit-learn
+scipy

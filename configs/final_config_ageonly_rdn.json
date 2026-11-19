@@ -1,0 +1,147 @@
+{
+ "weights": {
+  "rdn_aux": 0.25,
+  "vb2_aux": 0.25,
+  "clip_aux": 0.25,
+  "xj0_final_all70_nway_qp": 0.08333333333333333,
+  "xj0_final_all70_nway_qp_s1": 0.08333333333333333,
+  "xj0_final_all70_nway_qp_s2": 0.08333333333333333
+ },
+ "seeds": [
+  0,
+  1,
+  2
+ ],
+ "members": {
+  "rdn_aux": {
+   "face": [
+    "face"
+   ],
+   "voice": [
+    "rdn2"
+   ],
+   "face_attr": "age",
+   "hidden": 256,
+   "d": 128,
+   "p_in": 0.3,
+   "drop": 0.5,
+   "no_stage_a": false
+  },
+  "vb2_aux": {
+   "face": [
+    "face"
+   ],
+   "voice": [
+    "vb2_ms",
+    "wavlm_ms"
+   ],
+   "face_attr": "age",
+   "hidden": 256,
+   "d": 128,
+   "p_in": 0.3,
+   "drop": 0.5,
+   "no_stage_a": false
+  },
+  "clip_aux": {
+   "face": [
+    "face",
+    "clipface"
+   ],
+   "voice": [
+    "ecapa_ms",
+    "wavlm_ms"
+   ],
+   "face_attr": "age",
+   "hidden": 256,
+   "d": 128,
+   "p_in": 0.3,
+   "drop": 0.5,
+   "no_stage_a": false
+  },
+  "xj0_final_all70_nway_qp": {
+   "face": [
+    "xf_final_all70_nway_qp"
+   ],
+   "voice": [
+    "xv_final_all70_nway_qp"
+   ],
+   "face_attr": "age",
+   "hidden": 256,
+   "d": 128,
+   "p_in": 0.3,
+   "drop": 0.5,
+   "no_stage_a": true
+  },
+  "xj0_final_all70_nway_qp_s1": {
+   "face": [
+    "xf_final_all70_nway_qp_s1"
+   ],
+   "voice": [
+    "xv_final_all70_nway_qp_s1"
+   ],
+   "face_attr": "age",
+   "hidden": 256,
+   "d": 128,
+   "p_in": 0.3,
+   "drop": 0.5,
+   "no_stage_a": true
+  },
+  "xj0_final_all70_nway_qp_s2": {
+   "face": [
+    "xf_final_all70_nway_qp_s2"
+   ],
+   "voice": [
+    "xv_final_all70_nway_qp_s2"
+   ],
+   "face_attr": "age",
+   "hidden": 256,
+   "d": 128,
+   "p_in": 0.3,
+   "drop": 0.5,
+   "no_stage_a": true
+  }
+ },
+ "face_attributes": "age only (no predicted gender)",
+ "recipe": {
+  "TEMP": 0.1,
+  "HN_W": 0.5,
+  "HN_MARGIN": 0.2,
+  "AUX_W": 1.0,
+  "LANG_ADV": 0.2,
+  "NOISE_STD": 0.02,
+  "P_IDS": 64,
+  "K_PER_ID": 4,
+  "SAME_GENDER_FRAC": 0.5,
+  "A_EPOCHS": 12,
+  "A_LR": 0.001,
+  "B_EPOCHS": 15,
+  "B_LR": 0.0001,
+  "B_WARM_EPOCHS": 3,
+  "SCRATCH_EPOCHS": 25,
+  "SCRATCH_LR": 0.001,
+  "WEIGHT_DECAY": 0.0001
+ },
+ "report": {
+  "no_gender/sub_score_v4_English_heard.txt": {
+   "rows": 392,
+   "score_min": -0.7163110971450806,
+   "score_max": 0.19185669720172882
+  },
+  "no_gender/sub_score_v4_Bangla_unheard.txt": {
+   "rows": 802,
+   "score_min": -0.7189995646476746,
+   "score_max": 0.24492745101451874
+  },
+  "gender/sub_score_v4_English_heard.txt": {
+   "rows": 416,
+   "score_min": -0.706812858581543,
+   "score_max": 0.09912239015102386
+  },
+  "gender/sub_score_v4_Bangla_unheard.txt": {
+   "rows": 716,
+   "score_min": -0.7168934345245361,
+   "score_max": 0.25284773111343384
+  }
+ },
+ "torch": "2.11.0+cpu"
+}
