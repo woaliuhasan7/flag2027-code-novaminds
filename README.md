@@ -29,6 +29,7 @@ Frozen-encoder features and inputs used by the scripts (`https://www.kaggle.com/
 | [flag-ada-eval](https://www.kaggle.com/datasets/mahiwoaliuhasan/flag-ada-eval) | AdaFace features of the 4 evaluation lists |
 | [flag2027-campp-feats](https://www.kaggle.com/datasets/mahiwoaliuhasan/flag2027-campp-feats) | CAM++ features (FLAG train, VoxCeleb2, evaluation lists) |
 | [flag-tta-in](https://www.kaggle.com/datasets/mahiwoaliuhasan/flag-tta-in) | flip-TTA features, production towers, `tta_prod.py` |
+| [flag2027-xj0-encoders](https://www.kaggle.com/datasets/mahiwoaliuhasan/flag2027-xj0-encoders) | fine-tuned xj0 encoder weights (InceptionResnetV1 + WavLM-SV), 3 final runs, `*_encoders_best.pt` + SHA256SUMS |
 | [flag-adv-code](https://www.kaggle.com/datasets/mahiwoaliuhasan/flag-adv-code) | code used by the AdaFace/CAM++ kernel |
 
 ## Layout
