@@ -39,6 +39,7 @@ Frozen-encoder features and inputs used by the scripts (`https://www.kaggle.com/
 - `src/final/tta_prod.py` production 20.33 + flip TTA (checks no-flip scores reproduce the 20.33 files before writing);
   `src/final/combine_final.py` builds the final zip.
 - `checkpoints/towers/` 18 trained towers (3 seeds × rdn/vb2/clip + 3 xj0 runs × 3 seeds); `checkpoints/adaface_campp/` 3 seeds.
+- `docs/architecture.png` system architecture diagram (source `docs/architecture.mmd`).
 - `outputs/` per-member eval scores, flip features, eval cosines, and the submitted zips.
 
 ## Reproduce

@@ -1,0 +1,32 @@
+flowchart LR
+  T["One trial:<br/>face image + voice clip"]
+  A["ViT age estimate<br/>(frozen, face-tower input)"]
+  subgraph R1[" "]
+    direction LR
+    f1["VGGFace2 + flip TTA"] --> t1["Face tower MLP<br/>Voice tower MLP<br/>(member 1, 3 seeds)"]
+    v1["ReDimNet2-B3"] --> t1
+  end
+  subgraph R2[" "]
+    direction LR
+    f2["VGGFace2 + flip TTA"] --> t2["Towers<br/>(member 2, 3 seeds)"]
+    v2["VoxBlink2 + WavLM-SV"] --> t2
+  end
+  subgraph R3[" "]
+    direction LR
+    f3["VGGFace2 + flip TTA<br/>+ CLIP ViT-B/16"] --> t3["Towers<br/>(member 3, 3 seeds)"]
+    v3["ECAPA + WavLM-SV"] --> t3
+  end
+  subgraph R4[" "]
+    direction LR
+    f4["Fine-tuned<br/>InceptionResnetV1"] --> t4["Towers<br/>(member 4, 3 runs x 3 seeds)"]
+    v4["Fine-tuned WavLM-SV"] --> t4
+  end
+  subgraph R5[" "]
+    direction LR
+    f5["AdaFace IR-101"] --> t5["Towers<br/>(member 5, 3 seeds)"]
+    v5["CAM++"] --> t5
+  end
+  T --> f1 & f2 & f3 & f4 & f5
+  T --> v1 & v2 & v3 & v4 & v5
+  A -.-> t1 & t2 & t3 & t5
+  t1 & t2 & t3 & t4 & t5 -->|"cosine per member"| S["Score = -(mean of 5 members)<br/>lower = same person<br/>plain cosine, no normalisation,<br/>each trial scored alone"]
